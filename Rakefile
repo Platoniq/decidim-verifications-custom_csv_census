@@ -11,3 +11,6 @@ task test_app: "decidim:generate_external_test_app" do
     system("bundle exec rake custom_csv_census:init")
   end
 end
+
+desc "Generates a development app."
+task development_app: "decidim:generate_external_development_app"

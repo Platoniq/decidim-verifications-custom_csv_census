@@ -6,7 +6,7 @@ namespace :custom_csv_census do
   namespace :generate do
     desc "Generates a customized migration"
     task custom_migration: :environment do
-      gem_root = Gem::Specification.find_by_name("decidim-verifications-custom_csv_census").gem_dir
+      gem_root = Gem::Specification.find_by_name("verifications").gem_dir
       default_migration_name = "create_decidim_verifications_custom_csv_census_census_data.decidim_verifications_custom_csv_census.rb"
       default_migration_path = File.join(gem_root, "db", default_migration_name)
       text = File.read(default_migration_path)

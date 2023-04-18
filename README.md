@@ -19,7 +19,7 @@ The uploaded file is processed when the file is uploaded. Uploading the file to 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'decidim-verifications-custom_csv_census', git: 'git@github.com:CodiTramuntana/decidim-verifications-custom_csv_census.git'
+gem 'verifications', git: 'git@github.com:CodiTramuntana/verifications.git'
 ```
 
 Configure the CSV fields by creating an initializer in `config/initializers/custom_csv_census.rb`.

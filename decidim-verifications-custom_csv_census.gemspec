@@ -9,10 +9,10 @@ Gem::Specification.new do |s|
   s.authors = ["CodiTramuntana"]
   s.email = ["support@coditramuntana.com"]
   s.license = "AGPL-3.0"
-  s.homepage = "https://github.com/coditramuntana/decidim-verifications-custom_csv_census"
+  s.homepage = "https://github.com/coditramuntana/verifications"
   s.required_ruby_version = ">= 2.5.1"
 
-  s.name = "decidim-verifications-custom_csv_census"
+  s.name = "verifications"
   s.summary = "Decidim verifications via uploaded CSV with configurable data"
   s.description = s.summary
 
