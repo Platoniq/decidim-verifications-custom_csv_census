@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/coditramuntana/verifications"
   s.required_ruby_version = ">= 2.5.1"
 
-  s.name = "verifications"
+  s.name = "decidim-verifications-custom_csv_census"
   s.summary = "Decidim verifications via uploaded CSV with configurable data"
   s.description = s.summary
 
