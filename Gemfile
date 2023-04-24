@@ -7,7 +7,7 @@ ruby RUBY_VERSION
 DECIDIM_VERSION = "0.25.2"
 
 gem "decidim", DECIDIM_VERSION
-gem "decidim-verifications-custom_csv_census", path: "."
+gem "decidim-custom_csv_census", path: "."
 
 gem "bootsnap", "~> 1.4"
 
