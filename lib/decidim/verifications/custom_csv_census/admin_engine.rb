@@ -10,9 +10,8 @@ module Decidim
         paths["db/migrate"] = nil
         paths["lib/tasks"] = nil
 
-
         routes do
-          resources :custom_csv_census, only: %i[index create] do
+          resources :custom_csv_census, only: [:index, :create] do
             collection do
               delete :destroy
             end

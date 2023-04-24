@@ -11,7 +11,7 @@ module Decidim
         isolate_namespace Decidim::Verifications::CustomCsvCensus
 
         routes do
-          resources :authorizations, only: %i[new create index]
+          resources :authorizations, only: [:new, :create, :index]
 
           root to: "authorizations#new"
         end

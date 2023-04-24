@@ -11,9 +11,7 @@ module Decidim
         fields.each do |name, options|
           attribute name, options[:type]
           validates_presence_of name
-          if options[:type] == String && options[:format]
-            validates_format_of name, with: options[:format], message: I18n.t("errors.messages.#{name}_format")
-          end
+          validates_format_of name, with: options[:format], message: I18n.t("errors.messages.#{name}_format") if options[:type] == String && options[:format]
         end
 
         validate :user_must_be_found_in_census
@@ -23,8 +21,8 @@ module Decidim
         end
 
         def metadata
-          metadata_fields= fields.select { |_k, options| !options[:encoded] }
-          attributes.slice(*metadata_fields.keys).transform_values {|v| v.to_s}
+          metadata_fields = fields.reject { |_k, options| options[:encoded] }
+          attributes.slice(*metadata_fields.keys).transform_values(&:to_s)
         end
 
         private

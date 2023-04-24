@@ -16,7 +16,7 @@ module Decidim
           {
             authorization_handler: {
               id_document: "00000000Z",
-              favourite_color: 'pink',
+              favourite_color: "pink",
               birth_date: birth_date,
               user: user
             }

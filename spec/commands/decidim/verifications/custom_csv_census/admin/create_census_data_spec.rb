@@ -7,9 +7,9 @@ module Decidim
     module CustomCsvCensus
       module Admin
         describe CreateCensusData do
-          include_context "with tmp csv file"
-
           subject { described_class.call(form) }
+
+          include_context "with tmp csv file"
 
           let!(:user) { create(:user) }
           let(:organization) { user.organization }
@@ -32,7 +32,7 @@ module Decidim
             end
           end
 
-          context "whithout valid csv_data" do
+          context "without valid csv_data" do
             let(:row2) { ["invalid"] }
             let(:row3) { ["invalid"] }
 

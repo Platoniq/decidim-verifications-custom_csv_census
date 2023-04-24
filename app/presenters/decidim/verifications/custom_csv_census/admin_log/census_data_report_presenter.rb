@@ -62,7 +62,7 @@ module Decidim
           # Private: Calculates if the diff has to be shown or not.
           #
           # Returns a Boolean.
-          def has_diff? # rubocop:disable Naming/PredicateName
+          def has_diff?
             action_log.version.present?
           end
 

@@ -28,6 +28,7 @@ module Decidim
           private
 
           attr_reader :form
+
           delegate :csv_data, to: :form
 
           def create_census_data

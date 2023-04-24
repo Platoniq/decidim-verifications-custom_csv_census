@@ -27,6 +27,7 @@ module Decidim
           private
 
           attr_reader :current_user
+
           delegate :organization, to: :current_user
 
           def destroy_census_data
@@ -52,7 +53,7 @@ module Decidim
                 organization: organization,
                 user: current_user,
                 num_deleted: @census_data_count,
-                num_revoked:  @authorizations_count
+                num_revoked: @authorizations_count
               )
             end
           end

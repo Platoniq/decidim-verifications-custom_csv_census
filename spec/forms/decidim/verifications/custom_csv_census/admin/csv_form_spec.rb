@@ -7,9 +7,9 @@ module Decidim
     module CustomCsvCensus
       module Admin
         describe CsvForm do
-          include_context "with tmp csv file"
-
           subject { described_class.from_params(params).with_context(context) }
+
+          include_context "with tmp csv file"
 
           let(:params) { { file: file } }
           let(:file) { tmp_csv_file }

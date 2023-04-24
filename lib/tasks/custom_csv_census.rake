@@ -15,7 +15,7 @@ namespace :custom_csv_census do
       columns = custom_fields.map { |name, options| "t.#{options[:type].to_s.downcase} :#{name}" }
       replacement = columns.push("t.index #{indexes}, unique: true, name: 'index'").join("\n      ")
 
-      timestamp = (Time.now+1.minute).utc.to_s(:number)
+      timestamp = (Time.zone.now + 1.minute).utc.to_s(:number)
       puts "timestamp: #{timestamp}"
       new_migration_name = "#{timestamp}_#{default_migration_name}"
       file_name = Rails.root.join("db", "migrate", new_migration_name)

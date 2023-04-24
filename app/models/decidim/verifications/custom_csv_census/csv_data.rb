@@ -12,7 +12,7 @@ module Decidim
         attr_reader :errors, :values
 
         def initialize(file, organization)
-          @logger = Logger.new(Rails.root.join("log", "custom_csv_census.log"))
+          @logger = Logger.new(Rails.root.join("log/custom_csv_census.log"))
           @organization = organization
           @now = Time.current.to_s(:db)
           @filepath = file.path
@@ -22,7 +22,7 @@ module Decidim
         end
 
         def columns
-          headers + %i[decidim_organization_id created_at]
+          headers + [:decidim_organization_id, :created_at]
         end
 
         def read

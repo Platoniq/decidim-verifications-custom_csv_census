@@ -3,7 +3,7 @@
 # This initializer is used for configuring the test app.
 Decidim::Verifications::CustomCsvCensus.configure do |config|
   # `config.col_sep = ","` is the default CSV column separator.
-    config.fields = {
+  config.fields = {
     id_document: {
       type: String,
       search: true,
@@ -19,7 +19,7 @@ Decidim::Verifications::CustomCsvCensus.configure do |config|
       type: Date,
       search: true,
       encoded: false,
-      format: %r{\d{2}\/\d{2}\/\d{4}},
+      format: %r{\d{2}/\d{2}/\d{4}},
       parse: proc { |s| s.to_date }
     }
   }
