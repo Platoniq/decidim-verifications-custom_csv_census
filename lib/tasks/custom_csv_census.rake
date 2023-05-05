@@ -3,6 +3,14 @@
 namespace :custom_csv_census do
   task init: %w(generate:custom_migration decidim_custom_csv_census:install:migrations db:migrate)
 
+  desc "Rename all db entries with the new gem name"
+  task rename_db_gem_name: :environment do
+    Decidim::ActionLog.where(resource_type: "Decidim::Verifications::CustomCsvCensus::CensusDataReport").update_all(resource_type: "Decidim::CustomCsvCensus::CensusDataReport")
+    Decidim::ActionLog.where(resource_type: "Decidim::Verifications::CustomCsvCensus::CensusData").update_all(resource_type: "Decidim::CustomCsvCensus::CensusData")
+    ActiveRecord::Base.connection.execute("UPDATE versions SET item_type = 'Decidim::CustomCsvCensus::CensusDataReport' WHERE item_type = 'Decidim::Verifications::CustomCsvCensus::CensusDataReport'")
+    ActiveRecord::Base.connection.execute("UPDATE versions SET item_type = 'Decidim::CustomCsvCensus::CensusData' WHERE item_type = 'Decidim::Verifications::CustomCsvCensus::CensusData'")
+  end
+
   namespace :generate do
     desc "Generates a customized migration"
     task custom_migration: :environment do

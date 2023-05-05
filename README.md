@@ -24,12 +24,18 @@ gem 'decidim-custom_csv_census', git: 'git@github.com:Platoniq/decidim-verificat
 
 Configure the CSV fields by creating an initializer in `config/initializers/custom_csv_census.rb`.
 
-
 And then execute:
 
 ```bash
 bundle
 bin/rails custom_csv_census:init
+```
+### IMPORTANT! Upgrading from 0.0.x
+
+If you are upgrading this gem from any of the versions 0.0.x to 0.1.x or higher you must run the command bellow in your instance:
+
+```bash
+bundle exec rake custom_csv_census:rename_db_gem_name
 ```
 
 ## Configuration
