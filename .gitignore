@@ -12,6 +12,7 @@
 
 # default test application
 spec/decidim_dummy_app
+node_modules
 
 # default development application
 development_app
