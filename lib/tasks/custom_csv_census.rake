@@ -5,10 +5,14 @@ namespace :custom_csv_census do
 
   desc "Rename all db entries with the new gem name"
   task rename_db_gem_name: :environment do
+    # rubocop:disable Layout/LineLength
+    # rubocop:disable Rails/SkipsModelValidations
     Decidim::ActionLog.where(resource_type: "Decidim::Verifications::CustomCsvCensus::CensusDataReport").update_all(resource_type: "Decidim::CustomCsvCensus::CensusDataReport")
     Decidim::ActionLog.where(resource_type: "Decidim::Verifications::CustomCsvCensus::CensusData").update_all(resource_type: "Decidim::CustomCsvCensus::CensusData")
     ActiveRecord::Base.connection.execute("UPDATE versions SET item_type = 'Decidim::CustomCsvCensus::CensusDataReport' WHERE item_type = 'Decidim::Verifications::CustomCsvCensus::CensusDataReport'")
     ActiveRecord::Base.connection.execute("UPDATE versions SET item_type = 'Decidim::CustomCsvCensus::CensusData' WHERE item_type = 'Decidim::Verifications::CustomCsvCensus::CensusData'")
+    # rubocop:enable Layout/LineLength
+    # rubocop:enable Rails/SkipsModelValidations
   end
 
   namespace :generate do

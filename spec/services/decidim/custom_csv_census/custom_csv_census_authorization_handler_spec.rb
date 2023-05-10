@@ -16,7 +16,7 @@ module Decidim
       let!(:data) do
         create(
           :census_datum,
-          id_document: id_document,
+          id_document: CensusDatum.encode(id_document),
           favourite_color: "purple",
           birth_date: birth_date,
           organization: organization
